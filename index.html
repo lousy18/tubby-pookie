@@ -1,60 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tubby Pookie</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debadyooti & You</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <img src="assets/logo.png" alt="Tubby Pookie Logo">
-        </div>
-    </header>
+  <!-- Background Slideshow -->
+  <div class="slideshow">
+    <div class="slide fade" style="background-image: url('images/photo1.jpg');"></div>
+    <div class="slide fade" style="background-image: url('images/photo2.jpg');"></div>
+    <div class="slide fade" style="background-image: url('images/photo3.jpg');"></div>
+    <div class="slide fade" style="background-image: url('images/photo4.jpg');"></div>
+  </div>
 
-    <!-- Navbar BELOW header as per your design -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Content -->
+  <div class="content">
+    <h1>Debadyooti & You</h1>
+    <h2>ARE GETTING MARRIED</h2>
+    <div class="date">July 7th, 2025</div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Welcome to Tubby Pookie</h1>
-        <p>Your tagline or description goes here exactly like the screenshot.</p>
-    </section>
+    <!-- Countdown -->
+    <div class="countdown">
+      <div><span id="months"></span>Months</div>
+      <div><span id="days"></span>Days</div>
+      <div><span id="hours"></span>Hours</div>
+      <div><span id="minutes"></span>Minutes</div>
+      <div><span id="seconds"></span>Seconds</div>
+    </div>
+  </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Content as per screenshot text...</p>
-    </section>
+  <script>
+    // Countdown Script
+    const weddingDate = new Date("July 7, 2025 00:00:00").getTime();
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Our Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">Project 1</div>
-            <div class="project-card">Project 2</div>
-            <div class="project-card">Project 3</div>
-        </div>
-    </section>
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: example@tubbypookie.com</p>
-    </section>
+      const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+      const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Tubby Pookie. All rights reserved.</p>
-    </footer>
+      document.getElementById("months").innerText = months;
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Slideshow Script (crossfade)
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slideshow .slide");
+
+    function showSlides() {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = (i === slideIndex) ? "1" : "0";
+      });
+      slideIndex = (slideIndex + 1) % slides.length;
+    }
+
+    showSlides(); // Initial load
+    setInterval(showSlides, 5000); // Change every 5s
+  </script>
 </body>
 </html>

@@ -123,15 +123,14 @@ body, html {
 /* About Us Section */
 .about-section {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   background: white;
-  margin-top: 50px; /* ensures spacing after hero/navbar */
 }
 
 .about-section h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
   position: relative;
 }
 
@@ -143,12 +142,89 @@ body, html {
   color: #d94f6d;
 }
 
-.about-section p {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.6;
+.profiles {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.profile {
+  max-width: 300px;
+  text-align: center;
+  opacity: 0; /* for animation */
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.profile.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-pic {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 220px;
+  height: 220px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.profile-pic:hover img {
+  transform: scale(1.1);
+}
+
+.profile-pic .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(217,79,109,0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  font-weight: bold;
+  transition: opacity 0.4s ease;
+}
+
+.profile-pic:hover .overlay {
+  opacity: 1;
+}
+
+.profile h3 {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.profile p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.socials a {
+  color: #d94f6d;
+  font-size: 1.2rem;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #333;
 }
 
 /* Mobile Responsive */

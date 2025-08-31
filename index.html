@@ -32,7 +32,7 @@
 
     <!-- Navigation Bar -->
   <nav class="navbar">
-    <div class="logo">Perfect Couple</div>
+    <div class="logo">Tubby & Pookie</div>
     <ul>
       <li><a href="#about">About Us</a></li>
       <li><a href="#story">Our Story</a></li>
@@ -46,13 +46,46 @@
   </nav>
 
   <!-- About Us Section -->
-  <section id="about" class="about-section">
-    <h2>About Us</h2>
-    <p>
-      This is where you can share your love story — how you met, your journey together, 
-      and what makes your bond special 💕. You can customize this text as you like.
-    </p>
-  </section>
+<section id="about" class="about-section">
+  <h2>About Us</h2>
+  <div class="profiles">
+    <!-- Profile 1 -->
+    <div class="profile fade-left">
+      <a href="person1.html" class="profile-pic">
+        <img src="images/person1.jpg" alt="Person 1">
+        <div class="overlay">View Profile</div>
+      </a>
+      <h3>Debadyooti</h3>
+      <p>
+        A short bio about Debadyooti. You can write about personality, hobbies, 
+        or love story highlights here.
+      </p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:someone@email.com"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Profile 2 -->
+    <div class="profile fade-right">
+      <a href="person2.html" class="profile-pic">
+        <img src="images/person2.jpg" alt="Person 2">
+        <div class="overlay">View Profile</div>
+      </a>
+      <h3>Debayan</h3>
+      <p>
+        A short bio about Debayan. Write something sweet, quirky, or romantic 
+        to describe them here.
+      </p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:someone@email.com"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
   <script>
@@ -93,5 +126,26 @@
     showSlides(); // Initial load
     setInterval(showSlides, 5000); // Change every 5s
   </script>
+
+<script>
+  const faders = document.querySelectorAll(".profile");
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
 </body>
 </html>

@@ -326,7 +326,9 @@ body, html {
 /* Instagram Gradient */
 .socials a .fa-square-instagram {
   background: radial-gradient(circle at 30% 30%, #f58529, #dd2a7b, #8134af, #515bd4);
+  background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 

@@ -220,11 +220,13 @@ body, html {
   color: #d94f6d;
   font-size: 1.2rem;
   margin: 0 8px;
-  transition: color 0.3s ease;
+  transition: transform 0.2s ease, color 0.3s ease;
+  display: inline-block;
 }
 
 .socials a:hover {
   color: #333;
+  transform: scale(1.2); /* gently enlarge on hover */
 }
 
 /* Mobile Responsive */
@@ -269,8 +271,8 @@ body, html {
   transition: transform 0.4s ease;
 }
 
-.profile a::after {
-  content: "➜"; /* hover arrow / can change */
+/*.profile a::after {
+  content: "➜"; /* hover arrow / can change
   position: absolute;
   top: 50%;
   left: 50%;
@@ -279,17 +281,17 @@ body, html {
   font-size: 2rem;
   opacity: 0;
   transition: all 0.3s ease;
-}
+}*/
 
 .profile a:hover img {
   transform: scale(1.1);
   filter: brightness(70%);
 }
 
-.profile a:hover::after {
+/*.profile a:hover::after {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
-}
+}*/
 .profile-page {
   max-width: 800px;
   margin: 80px auto;

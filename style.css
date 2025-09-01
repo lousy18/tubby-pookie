@@ -361,11 +361,10 @@ margin-top: 0;
 /* Profile Page Name Styling */
 .profile-page h1 {
   font-family: 'Great Vibes', cursive; 
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: normal;
   color: #333;
-  position: relative;
-  display: inline-block;
+  text-align: center;       /* center the text */
   margin-bottom: 10px;
 }
 

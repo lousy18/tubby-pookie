@@ -4,71 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Debadyooti</title>
-  <link rel="stylesheet" href="style.css"> <!-- link to your main css -->
-  <style>
-    /* Fade-in on load */
-    body {
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Smooth hover transition for text */
-    .bio-text {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .bio-text:hover {
-      transform: scale(1.05);
-      color: #ff6600; /* pick your highlight color */
-    }
-
-    /* Button back home */
-    .back-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 18px;
-      border: 2px solid #333;
-      text-decoration: none;
-      color: #333;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      background: #333;
-      color: #fff;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="content">
-    <h1>Debadyooti</h1>
-    <p class="bio-text">This is Debadyooti’s dedicated profile. Add their description, quotes, or story here. The text gently enlarges and changes color on hover.</p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Tubby & Pookie</div>
+    <ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#story">Our Story</a></li>
+      <li><a href="index.html#people">People</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="index.html#accommodation">Accommodation</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="index.html#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
 
+  <!-- Profile Page -->
+  <div class="profile-page fade-up">
+    <h1>Debadyooti</h1>
+    <img src="images/person1.jpg" alt="Debadyooti">
+    <p class="bio-text">
+      This is Debadyooti’s dedicated profile page. Add a heartfelt description here, personality highlights, or favorite moments.
+    </p>
+    <div class="socials">
+      <a href="https://www.instagram.com/wallflower_in_the_city"><i class="fa-brands fa-square-instagram"></i></a>
+      <a href="mailto:debadyooti.iva@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/debadyootipal/"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
     <a href="index.html" class="back-btn">← Back</a>
   </div>
+
+  <!-- Scroll Animation Script -->
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const faders = document.querySelectorAll(".fade-up");
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll(".fade-up");
 
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
     });
-  }, { threshold: 0.2 });
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-});
-</script>
+  </script>
 </body>
 </html>

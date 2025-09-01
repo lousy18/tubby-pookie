@@ -5,68 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Debayan</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Slide-in animation */
-    body {
-      transform: translateX(-100%);
-      animation: slideIn 1s ease forwards;
-    }
-
-    @keyframes slideIn {
-      to {
-        transform: translateX(0);
-      }
-    }
-
-    .bio-text {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .bio-text:hover {
-      transform: rotate(-2deg) scale(1.05);
-      color: #0088cc;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 18px;
-      border: 2px solid #333;
-      text-decoration: none;
-      color: #333;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      background: #333;
-      color: #fff;
-    }
-  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="content">
-    <h1>Debayan</h1>
-    <p class="bio-text">This is Debayan's page with a slide-in entry effect. Hovering adds a tilt and color change to the text.</p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Tubby & Pookie</div>
+    <ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#story">Our Story</a></li>
+      <li><a href="index.html#people">People</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="index.html#accommodation">Accommodation</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="index.html#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
 
+  <!-- Profile Page -->
+  <div class="profile-page fade-up">
+    <h1>Debayan</h1>
+    <img src="images/person2.jpg" alt="Debayan">
+    <p class="bio-text">
+      This is Debayan’s dedicated profile page. You can write a detailed bio here, maybe fun facts, hobbies, or a personal story.
+    </p>
+    <div class="socials">
+      <a href="https://www.instagram.com/debayandaptary"><i class="fa-brands fa-square-instagram"></i></a>
+      <a href="mailto:d.daptary@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/debayan-daptary-158791111/"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
     <a href="index.html" class="back-btn">← Back</a>
   </div>
+
+  <!-- Scroll Animation Script -->
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const faders = document.querySelectorAll(".fade-up");
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll(".fade-up");
 
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
     });
-  }, { threshold: 0.2 });
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-});
-</script>
+  </script>
 </body>
 </html>

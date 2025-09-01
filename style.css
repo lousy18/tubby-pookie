@@ -93,10 +93,10 @@ margin-top: 0;
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: #d94f6d;
-  padding: 15px;
+  padding: 15px 40px;
   flex-wrap: wrap;
   position: sticky; /* sticky at top */
   top: 0;
@@ -112,9 +112,9 @@ margin-top: 0;
 
 .navbar ul {
   display: flex;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   list-style: none;
-  gap: 20px;
+  gap: 30px;
 }
 
 .navbar ul li a {
@@ -139,6 +139,7 @@ margin-top: 0;
 .about-section h2 {
   font-family: 'Great Vibes', cursive;
   font-size: 2.8rem;
+  font-weight: normal;   /* <-- removes the bold */
   margin-bottom: 40px;
   position: relative;
 }

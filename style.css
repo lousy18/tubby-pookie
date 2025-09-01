@@ -249,6 +249,83 @@ margin-top: 0;
   transform: scale(1.2); /* gently enlarge on hover
 }*/
 
+/* Our Story Section */
+.story-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: #fdfdfd;
+}
+
+.story-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  position: relative;
+  font-weight: normal;
+}
+
+.story-section h2::after {
+  content: "❤";
+  display: block;
+  margin: 10px auto;
+  font-size: 1.2rem;
+  color: #d94f6d;
+}
+
+.story-circles {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.story-item {
+  max-width: 250px;
+  text-align: center;
+  opacity: 0; /* for animation */
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.story-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.circle-pic {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.circle-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.circle-pic:hover img {
+  transform: scale(1.1);
+}
+
+.story-item h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.story-item p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .content h1 {

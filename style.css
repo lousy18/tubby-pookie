@@ -42,7 +42,7 @@ body, html {
 }
 
 .content h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: 'Great Vibes', cursive;
   color: rgba(255, 255, 255, 0.8); /* transparent white */
   text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
@@ -63,10 +63,14 @@ body, html {
 
 /* Countdown */
 .countdown {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+position: absolute;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 0;
 }
 
 .countdown div {

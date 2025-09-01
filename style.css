@@ -103,11 +103,17 @@ margin-top: 0;
   z-index: 10;
 }
 
-.navbar .logo {
+.navbar .logo a {
   font-family: 'Great Vibes', cursive;
   font-size: 1.5rem;
   color: white;
-  margin-right: 20px;
+  text-decoration: none;
+}
+
+.navbar .logo a:hover {
+  background: rgba(255, 255, 255, 0.2); /* optional hover effect like other links */
+  border-radius: 6px;
+  padding: 6px 12px;
 }
 
 .navbar ul {
@@ -122,11 +128,14 @@ margin-top: 0;
   color: white;
   font-weight: 500;
   font-size: 0.95rem;
+  padding: 6px 12px;       /* adds spacing for hover block */
+  border-radius: 6px;
   transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover {
-  color: #ffe6ec;
+  background: rgba(255, 255, 255, 0.2); /* highlight block */
+  color: #fff;
 }
 
 /* About Us Section */
@@ -375,4 +384,7 @@ margin-top: 0;
   margin: 8px auto;
   font-size: 1.2rem;
   color: #d94f6d;
+}
+html {
+  scroll-behavior: smooth;
 }

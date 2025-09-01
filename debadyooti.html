@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debadyooti</title>
+  <link rel="stylesheet" href="style.css"> <!-- link to your main css -->
+  <style>
+    /* Fade-in on load */
+    body {
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Smooth hover transition for text */
+    .bio-text {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .bio-text:hover {
+      transform: scale(1.05);
+      color: #ff6600; /* pick your highlight color */
+    }
+
+    /* Button back home */
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      border: 2px solid #333;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Debadyooti</h1>
+    <p class="bio-text">This is Debadyooti’s dedicated profile. Add their description, quotes, or story here. The text gently enlarges and changes color on hover.</p>
+
+    <a href="index.html" class="back-btn">← Back</a>
+  </div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll(".fade-up");
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+});
+</script>
+</body>
+</html>

@@ -215,7 +215,8 @@ margin-top: 0;
   font-size: 1.3rem;
   margin: 10px 0;
   font-weight: bold;
-  text-transform: uppercase;
+  font-family: 'Great Vibes', cursive; /* same font as About Us heading */
+  text-transform: none; /* allow normal casing */
 }
 
 .profile p {

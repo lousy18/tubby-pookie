@@ -201,6 +201,12 @@
           Write the sweet story of how you two met here. Add fun details, the
           setting, your first impressions, or even a funny twist.
         </p>
+
+        <div class="cta-buttons">
+            <button class="btn" id="reliveBtn">Relive the Memory</button>
+            <button class="btn" id="factBtn">Did You Know?</button>
+        </div>
+
       </div>
     </section>
 
@@ -255,5 +261,74 @@
     });
   </script>
 
+  <script>
+  // --- Relive the Memory Modal ---
+  const reliveBtn = document.getElementById("reliveBtn");
+  const reliveModal = document.getElementById("reliveModal");
+  const factBtn = document.getElementById("factBtn");
+  const factModal = document.getElementById("factModal");
+
+  // Close buttons
+  document.querySelectorAll(".close").forEach(el => {
+    el.addEventListener("click", e => {
+      const target = e.target.getAttribute("data-close");
+      document.getElementById(target).style.display = "none";
+    });
+  });
+
+  // Open Relive Memory
+  reliveBtn.addEventListener("click", () => {
+    reliveModal.style.display = "flex";
+  });
+
+  // Facts array (edit with your own cute facts)
+  const facts = [
+    "We spoke for 6 hours straight the first time.",
+    "She almost missed her train the day we met.",
+    "We both secretly wore matching colors on our first date.",
+    "He remembered the exact coffee she ordered that day.",
+    "We discovered our favorite song together on that trip."
+  ];
+  let usedFacts = [];
+
+  // Open Fact Modal
+  factBtn.addEventListener("click", () => {
+    if (usedFacts.length === facts.length) usedFacts = []; // reset when all shown
+    let fact;
+    do {
+      fact = facts[Math.floor(Math.random() * facts.length)];
+    } while (usedFacts.includes(fact));
+    usedFacts.push(fact);
+    document.getElementById("factText").innerText = fact;
+    factModal.style.display = "flex";
+  });
+
+  // Close when clicking outside modal
+  window.addEventListener("click", e => {
+    if (e.target.classList.contains("modal")) {
+      e.target.style.display = "none";
+    }
+  });
+</script>
+
+<!-- Relive the Memory Popup -->
+<div id="reliveModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-close="reliveModal">&times;</span>
+    <h2>Relive the Memory 💕</h2>
+    <p>Here you can show a small gallery of pictures and text.</p>
+    <img src="images/mussoorie.jpeg" alt="Memory" style="max-width:100%; border-radius:10px;">
+    <p>We met in Mussoorie... (add your story)</p>
+  </div>
+</div>
+
+<!-- Did You Know Popup -->
+<div id="factModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-close="factModal">&times;</span>
+    <h2>Did You Know? 🌟</h2>
+    <p id="factText"></p>
+  </div>
+</div>
 </body>
 </html>

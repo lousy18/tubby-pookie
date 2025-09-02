@@ -473,3 +473,33 @@ html {
   border-radius: 6px;
 }
 
+/* Story Button */
+.story-button {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0;                  /* start hidden */
+  transform: translateY(40px); /* slide up effect */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.story-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-button a {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #d94f6d; /* theme color */
+  color: white;
+  font-size: 1rem;
+  border-radius: 25px; /* rounded rectangle */
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.story-button a:hover {
+  background: #b83d59;
+  transform: translateY(-2px); /* subtle lift */
+}

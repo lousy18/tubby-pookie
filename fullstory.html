@@ -10,9 +10,9 @@
     /* Timeline wrapper */
     .timeline {
       position: relative;
-      max-width: 1000px;
+      width: 100%;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 60px 0; /* some breathing space at top & bottom */
     }
 
     /* Vertical line */
@@ -25,6 +25,7 @@
       width: 3px;
       background: #ddd;
       transform: translateX(-50%);
+      z-index: 0;
     }
 
     /* Each section */
@@ -33,9 +34,14 @@
       align-items: center;
       justify-content: center;
       gap: 40px;
-      padding: 80px 20px;
-      flex-wrap: wrap;
+      margin: 60px auto;   /* space between cards */
+      padding: 60px 40px;
+      max-width: 1000px;   /* card width */
+      border-radius: 12px;
       position: relative;
+      background: #fff;    /* white card */
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      z-index: 1;
     }
 
     /* Alternate background colors */
@@ -125,10 +131,11 @@
       .story-section-full {
         flex-direction: column !important;
         text-align: center;
+        margin: 40px 20px;
       }
       .story-section-full::before {
         left: 20px; /* dot aligns with line */
-        transform: none;
+        transform: translateY(-50%);
       }
       .story-text {
         text-align: center;

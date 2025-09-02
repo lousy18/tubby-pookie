@@ -204,29 +204,59 @@
 </script>
 
 <script>
-    //JavaScript to track scroll position:
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".navbar ul li a");
+document.addEventListener('DOMContentLoaded', () => {
+  // select only anchor links that point to in-page sections
+  const navLinks = Array.from(document.querySelectorAll('.navbar ul li a[href^="#"]'));
+  if (!navLinks.length) return;
 
-  window.addEventListener("scroll", () => {
-    let current = "";
+  // map links -> sections (ignore links whose target doesn't exist)
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 60; // adjust for navbar height
-      const sectionHeight = section.clientHeight;
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
+  // Smooth scroll on click (prevent default jump)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      const target = document.querySelector(href);
+      if (!target) return; // external or missing
+      e.preventDefault();
+      // Use scrollIntoView for smooth scroll
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-</script>
 
+  // IntersectionObserver options
+  // rootMargin moves the "activation" area upward so the sticky navbar doesn't hide the top.
+  // If your navbar is e.g. 60px high, you could use '0px 0px -60% 0px' or tweak as needed.
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -45% 0px', // trigger when section top is within top ~55% of viewport
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        // toggle active class on links
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('active', href === ('#' + id));
+        });
+      }
+    });
+  }, observerOptions);
+
+  // observe each section
+  sections.forEach(sec => observer.observe(sec));
+
+  // Optional: ensure the correct link is active on load (in case page opened with hash)
+  const currentHash = location.hash;
+  if (currentHash) {
+    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentHash));
+  }
+});
+</script>
 </body>
 </html>

@@ -308,6 +308,26 @@
     });
   </script>
 
+  <!-- Relive the Memory Popup -->
+<div id="reliveModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-close="reliveModal">&times;</span>
+    <h2>Relive the Memory 💕</h2>
+    <p>Here you can show a small gallery of pictures and text.</p>
+    <img src="images/mussoorie.jpeg" alt="Memory" style="max-width:100%; border-radius:10px;">
+    <p>We met in Mussoorie... (add your story)</p>
+  </div>
+</div>
+
+<!-- Did You Know Popup -->
+<div id="factModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-close="factModal">&times;</span>
+    <h2>Did You Know? 🌟</h2>
+    <p id="factText"></p>
+  </div>
+</div>
+
   <script>
   // --- Relive the Memory Modal ---
   const reliveBtn = document.getElementById("reliveBtn");
@@ -357,25 +377,5 @@
     }
   });
 </script>
-
-<!-- Relive the Memory Popup -->
-<div id="reliveModal" class="modal">
-  <div class="modal-content">
-    <span class="close" data-close="reliveModal">&times;</span>
-    <h2>Relive the Memory 💕</h2>
-    <p>Here you can show a small gallery of pictures and text.</p>
-    <img src="images/mussoorie.jpeg" alt="Memory" style="max-width:100%; border-radius:10px;">
-    <p>We met in Mussoorie... (add your story)</p>
-  </div>
-</div>
-
-<!-- Did You Know Popup -->
-<div id="factModal" class="modal">
-  <div class="modal-content">
-    <span class="close" data-close="factModal">&times;</span>
-    <h2>Did You Know? 🌟</h2>
-    <p id="factText"></p>
-  </div>
-</div>
 </body>
 </html>

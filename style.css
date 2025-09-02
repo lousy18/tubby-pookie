@@ -548,3 +548,14 @@ html {
   to { opacity: 1; transform: scale(1); }
 }
 
+.cta-buttons {
+  display: flex;
+  justify-content: center;   /* centers the buttons horizontally */
+  gap: 20px;                 /* space between the buttons */
+  margin-top: 20px;          /* some breathing space above */
+}
+
+.cta-buttons .btn {
+  flex: 0 0 auto; /* don’t stretch, keep buttons natural size */
+}
+

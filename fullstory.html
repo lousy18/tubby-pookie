@@ -131,6 +131,24 @@
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
+    .back-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #d94f6d;      /* theme color */
+  color: white;
+  font-size: 1rem;
+  border-radius: 25px;      /* pill shape */
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background: #b83d59;
+  transform: translateY(-2px) scale(1.05); /* subtle hover grow + lift */
+}
+
+
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
@@ -213,9 +231,10 @@
   </div>
 
   <!-- Back link -->
-  <div style="text-align:center; margin: 40px 0;">
-    <a href="index.html#story" style="color:#d94f6d; text-decoration:none;">← Back to Our Story</a>
-  </div>
+<div style="text-align:center; margin: 40px 0;">
+  <a href="index.html#story" class="back-button">Back to Our Story</a>
+</div>
+
 
   <script>
     // Fade-up animation on scroll

@@ -465,3 +465,9 @@ margin-top: 0;
 html {
   scroll-behavior: smooth;
 }
+
+.navbar ul li a.active {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 6px;
+}

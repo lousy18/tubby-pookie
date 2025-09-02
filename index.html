@@ -186,5 +186,47 @@
     appearOnScroll.observe(fader);
   });
 </script>
+
+<script>
+  // Smooth scroll with easing
+  document.querySelectorAll('.navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      if (this.getAttribute('href').startsWith("#")) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+    //JavaScript to track scroll position:
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 60; // adjust for navbar height
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

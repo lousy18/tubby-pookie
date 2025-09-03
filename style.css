@@ -577,7 +577,7 @@ html {
 /* Mobile: Show full image without cropping */
 @media (max-width: 768px) {
   .slideshow .slide {
-    background-size: contain;       /* show full image */
+    background-size: cover;       /* show full image */
     background-repeat: no-repeat;
     background-position: center;
     background-color: #000;         /* black bars if needed */

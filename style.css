@@ -600,3 +600,18 @@ html {
     background-color: black; /* fallback behind portrait images */
   }
 }
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .countdown {
+    gap: 5px;
+  }
+  .countdown div {
+    padding: 4px 6px;
+    min-width: 40px;
+    font-size: 0.7rem;
+  }
+  .countdown span {
+    font-size: 0.9rem;
+  }
+}

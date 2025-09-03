@@ -724,47 +724,7 @@ html {
   text-align: center;
 }
 
-.carousel {
-  position: relative;
-  width: 300px;
-  overflow: hidden;
-  border-radius: 12px;
-}
 
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 100%;
-  position: relative;
-}
-
-.carousel-item img {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-}
-
-/* Caption on hover */
-.carousel-item .caption {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 8px 0;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 0.9rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 0 0 12px 12px;
-}
-
-.carousel-item:hover .caption {
-  opacity: 1;
-}
 
 /* Arrows */
 .carousel button {
@@ -805,4 +765,46 @@ html {
 
 .return-btn a:hover {
   background: #b83d59;
+}
+
+.carousel {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Caption on hover */
+.carousel-item .caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 12px 12px;
+}
+
+.carousel-item:hover .caption {
+  opacity: 1;
 }

@@ -634,3 +634,76 @@ html {
     font-size: 0.8rem;
   }
 }
+
+/* Carousel Styles */
+.carousel {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.caption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Carousel Buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Return Button */
+.return-btn {
+  margin-top: 20px;
+}
+
+.return-btn a {
+  display: inline-block;
+  background: #d94f6d;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.return-btn a:hover {
+  background: #b83d59;
+}

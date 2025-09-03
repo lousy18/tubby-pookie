@@ -707,3 +707,102 @@ html {
 .return-btn a:hover {
   background: #b83d59;
 }
+
+.profile-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  background: #fff7f9; /* bigger pink background */
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.profile-left {
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Caption on hover */
+.carousel-item .caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 12px 12px;
+}
+
+.carousel-item:hover .caption {
+  opacity: 1;
+}
+
+/* Arrows */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
+
+.profile-right {
+  max-width: 400px;
+  text-align: left;
+}
+
+.return-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.return-btn a {
+  text-decoration: none;
+  font-size: 1rem;
+  background: #d94f6d;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.return-btn a:hover {
+  background: #b83d59;
+}

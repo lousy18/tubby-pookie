@@ -23,26 +23,26 @@
 
   <!-- Profile Page -->
   <div class="profile-page fade-up">
-    <h1>Debadyooti</h1>
-        
-    <!-- Carousel -->
-  <div class="carousel">
-    <button class="prev">&#10094;</button>
+    <div class="profile-card">
+            
+    <!-- left side Carousel + socials-->
+  <div class="profile-left">
+    <div class="carousel">
+    
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="images/palmus.jpg" alt="Debadyooti Pic 1">
-        <p class="caption">Mussoorie-April 2025</p>
+        <div class="caption">Mussoorie-April 2025</p>
       </div>
       <div class="carousel-item">
         <img src="images/palchinti.jpg" alt="Debadyooti Pic 2">
-        <p class="caption">Bangalore-October 2024</p>
+        <div class="caption">Bangalore-October 2024</p>
       </div>
       <div class="carousel-item">
         <img src="images/palramen.jpg" alt="Debadyooti Pic 3">
-        <p class="caption">Gurgaon-April 2025</p>
+        <div class="caption">Gurgaon-April 2025</p>
       </div>
     </div>
-    <button class="next">&#10095;</button>
   </div>
     
     <div class="socials">
@@ -50,7 +50,11 @@
       <a href="mailto:debadyooti.iva@gmail.com"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://www.linkedin.com/in/debadyootipal/"><i class="fa-brands fa-linkedin"></i></a>
     </div>
+  </div>
 
+    <!-- Right Side: Text + CTA -->
+    <div class="profile-right">
+      <h1>Debadyooti</h1>
      <p class="profile-desc">
     This is Debadyooti’s dedicated profile page. Add a heartfelt description here, personality highlights, or favorite moments.
   </p>
@@ -60,6 +64,8 @@
     <a href="#" class="btn">CTA 1</a>
     <a href="#" class="btn">CTA 2</a>
     <a href="#" class="btn">CTA 3</a>
+  </div>
+  </div>
   </div>
 
   <!-- Return Button -->
@@ -91,20 +97,21 @@
 
   <!-- Caraousel Script -->
 
-  <script>
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-const carouselInner = document.querySelector(".carousel-inner");
-const items = document.querySelectorAll(".carousel-item");
-let index = 0;
 
-function showSlide(i) {
-  index = (i + items.length) % items.length;
-  carouselInner.style.transform = `translateX(-${index * 100}%)`;
-}
+<!-- Caraousel Script auto slide-->
+<script>
+  const carousel = document.querySelector(".carousel-inner");
+  const items = document.querySelectorAll(".carousel-item");
+  let index = 0;
 
-prev.addEventListener("click", () => showSlide(index - 1));
-next.addEventListener("click", () => showSlide(index + 1));
+  function showSlide(i) {
+    carousel.style.transform = `translateX(-${i * 100}%)`;
+  }
+
+  setInterval(() => {
+    index = (index + 1) % items.length;
+    showSlide(index);
+  }, 5000); // 5 seconds
 </script>
 </body>
 </html>

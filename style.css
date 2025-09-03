@@ -28,6 +28,21 @@ body, html {
   transition: opacity 2s ease-in-out;
 }
 
+/* Desktop defaults */
+.slideshow .slide:nth-child(1) { background-image: url('images/pocket_cr.jpg'); }
+.slideshow .slide:nth-child(2) { background-image: url('images/reclinerselfie_cr.jpg'); }
+.slideshow .slide:nth-child(3) { background-image: url('images/SF_cr.jpg'); }
+.slideshow .slide:nth-child(4) { background-image: url('images/PB_cr.jpg'); }
+
+/* Mobile overrides */
+@media (max-width: 768px) {
+  .slideshow .slide:nth-child(1) { background-image: url('images/pocket.jpeg'); }
+  .slideshow .slide:nth-child(2) { background-image: url('images/reclinerselfie.jpeg'); }
+  .slideshow .slide:nth-child(3) { background-image: url('images/SF.jpg'); }
+  .slideshow .slide:nth-child(4) { background-image: url('images/PB.jpg'); }
+}
+
+
 /* Hero Content */
 .content {
   height: 100vh; /* full screen hero */

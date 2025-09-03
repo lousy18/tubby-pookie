@@ -23,7 +23,6 @@
 
     <!-- Counter -->
     <div class="countdown">
-      <div><span id="months"></span>Months</div>
       <div><span id="days"></span>Days</div>
       <div><span id="hours"></span>Hours</div>
       <div><span id="minutes"></span>Minutes</div>
@@ -137,13 +136,13 @@
       const now = new Date().getTime();
       const diff = now - startDate; // difference grows (not shrinks)
 
-      const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
-      const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById("months").innerText = months;
+      
       document.getElementById("days").innerText = days;
       document.getElementById("hours").innerText = hours;
       document.getElementById("minutes").innerText = minutes;

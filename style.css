@@ -94,8 +94,8 @@ margin-top: 0;
   background: rgba(255,255,255,0.5);
   color: rgba(0,0,0,0.8);
   padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
   font-weight: 600;
   min-width: 50px;
 }
@@ -103,7 +103,7 @@ margin-top: 0;
 .countdown span {
   display: block;
   font-size: 1rem;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 /* Navbar */
@@ -609,9 +609,9 @@ html {
   .countdown div {
     padding: 4px 6px;
     min-width: 40px;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   .countdown span {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }

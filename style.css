@@ -574,3 +574,12 @@ html {
   flex: 0 0 auto; /* don’t stretch, keep buttons natural size */
 }
 
+/* Mobile: Show full image without cropping */
+@media (max-width: 768px) {
+  .slideshow .slide {
+    background-size: contain;       /* show full image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;         /* black bars if needed */
+  }
+}

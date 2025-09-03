@@ -583,3 +583,19 @@ html {
     background-color: #000;         /* black bars if needed */
   }
 }
+
+/* Mobile overrides: Swap to original images on small screens */
+@media (max-width: 768px) {
+  .slideshow .slide:nth-child(1) { background-image: url('images/pocket.jpeg') !important; }
+  .slideshow .slide:nth-child(2) { background-image: url('images/reclinerselfie.jpeg') !important; }
+  .slideshow .slide:nth-child(3) { background-image: url('images/SF.jpg') !important; }
+  .slideshow .slide:nth-child(4) { background-image: url('images/PB.jpg') !important; }
+  
+  /* Ensure full portrait view */
+  .slide {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black; /* fallback behind portrait images */
+  }
+}

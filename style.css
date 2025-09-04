@@ -349,10 +349,11 @@ margin-top: 0;
 }
 
 .story-item h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin: 10px 0;
   font-weight: bold;
-  text-transform: none;
+  font-family: 'Great Vibes', cursive; /* same font as About Us heading */
+  text-transform: none; 
 }
 
 .story-item p {

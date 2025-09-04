@@ -85,18 +85,33 @@
 
   <!-- Auto Carousel Script -->
   <script>
-    const carousel = document.querySelector(".carousel-inner");
-    const items = document.querySelectorAll(".carousel-item");
-    let index = 0;
+  const carousel = document.querySelector(".carousel-inner");
+  const items = document.querySelectorAll(".carousel-item");
+  const carouselContainer = document.querySelector(".carousel");
+  let index = 0;
+  let interval;
 
-    function showSlide(i) {
-      carousel.style.transform = `translateX(-${i * 100}%)`;
-    }
+  function showSlide(i) {
+    carousel.style.transform = `translateX(-${i * 100}%)`;
+  }
 
-    setInterval(() => {
+  function startCarousel() {
+    interval = setInterval(() => {
       index = (index + 1) % items.length;
       showSlide(index);
     }, 5000);
-  </script>
+  }
+
+  function stopCarousel() {
+    clearInterval(interval);
+  }
+
+  // Start auto-slide
+  startCarousel();
+
+  // Pause on hover, resume on leave
+  carouselContainer.addEventListener("mouseenter", stopCarousel);
+  carouselContainer.addEventListener("mouseleave", startCarousel);
+</script>
 </body>
 </html>

@@ -696,7 +696,7 @@ html {
 /* Caption inside image */
 .carousel-item .caption {
   position: absolute;
-  bottom: 15px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -707,7 +707,7 @@ html {
   font-size: 0.9rem;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 0 0 12px 12px;
+  border-radius: 8px;
 }
 
 .carousel-item:hover .caption {

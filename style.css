@@ -695,7 +695,7 @@ html {
 
 /* Caption inside image */
 .carousel-item .caption {
-  position: absolute;
+  position: center;
   bottom: 0;
   left: 0;
   width: 100%;

@@ -198,16 +198,20 @@
   border-radius: 12px;
   max-width: 600px;
   width: 90%;
+  max-height: 80vh; /* so it never exceeds viewport height */
+  overflow-y: auto; /* scroll if content is too tall */
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   text-align: center;
   animation: fadeIn 0.4s ease;
+  position: relative;  /* Important for close button placement */
+  margin: auto;        /* Centers modal properly */
 }
 
 /* Close button */
 .close {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 10px;
+  right: 15px;
   font-size: 28px;
   font-weight: bold;
   color: #555;

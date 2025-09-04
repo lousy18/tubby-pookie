@@ -640,7 +640,7 @@ html {
 
 /* Full-width pink background */
 .profile-page {
-  background: #ffeef3;   /* soft pink background */
+  background: white;   /* soft pink background */
   padding: 60px 0;
   width: 100%;
 }
@@ -655,7 +655,7 @@ html {
   gap: 40px;
   padding: 40px;
   border-radius: 12px;
-  background: white;
+  background: #ffeef3;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -688,7 +688,7 @@ html {
 
 .carousel-item img {
   width: 100%;
-  height: 400px;
+  height: 800px;
   object-fit: cover;
   border-radius: 12px;
 }

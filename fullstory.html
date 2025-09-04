@@ -322,7 +322,7 @@
     <span class="close" data-close="reliveModal">&times;</span>
     <h2>Relive the Memory 💕</h2>
     <p>Here you can show a small gallery of pictures and text.</p>
-    <img src="images/mussoorie.jpeg" alt="Memory" style="max-width:100%; border-radius:10px;">
+        <img id="reliveImg" src="" alt="Memory" style="max-width:100%; border-radius:10px;">
     <p>We met in Mussoorie... (add your story)</p>
   </div>
 </div>
@@ -337,9 +337,10 @@
 </div>
 
   <script>
-  // --- Relive the Memory Modal ---
+  // --- Relive the Memory Modal with Random Images ---
   const reliveBtn = document.getElementById("reliveBtn");
   const reliveModal = document.getElementById("reliveModal");
+  const reliveImg = document.getElementById("reliveImg"); // we will assign this in modal
   const factBtn = document.getElementById("factBtn");
   const factModal = document.getElementById("factModal");
 
@@ -351,8 +352,18 @@
     });
   });
 
-  // Open Relive Memory
+  // Image list for random selection
+  const memoryImages = [
+    "images/mussoorie.jpeg",
+    "images/reclinerselfie.jpeg",
+    "images/pocket.jpeg",
+    "images/poilaboishak.jpeg"
+  ];
+
+  // Open Relive Memory with random image
   reliveBtn.addEventListener("click", () => {
+    const randomImage = memoryImages[Math.floor(Math.random() * memoryImages.length)];
+    reliveImg.src = randomImage;
     reliveModal.style.display = "flex";
   });
 
@@ -368,7 +379,7 @@
 
   // Open Fact Modal
   factBtn.addEventListener("click", () => {
-    if (usedFacts.length === facts.length) usedFacts = []; // reset when all shown
+    if (usedFacts.length === facts.length) usedFacts = [];
     let fact;
     do {
       fact = facts[Math.floor(Math.random() * facts.length)];
@@ -385,5 +396,6 @@
     }
   });
 </script>
+
 </body>
 </html>

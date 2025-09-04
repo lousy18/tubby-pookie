@@ -567,7 +567,12 @@ html {
 }
 
 .modal-content img {
+  max-height: 50vh;  /* keep image smaller than screen height */
+  width: auto;
+  max-width: 100%;
+  border-radius: 10px;
   margin: 15px 0;
+  object-fit: cover;
 }
 
 .close {

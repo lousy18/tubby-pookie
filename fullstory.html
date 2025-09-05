@@ -321,9 +321,9 @@
   <div class="modal-content">
     <span class="close" data-close="reliveModal">&times;</span>
     <h2>Relive the Memory 💕</h2>
-    <p>Here you can show a small gallery of pictures and text.</p>
+    
         <img id="reliveImg" src="" alt="Memory" style="max-width:100%; border-radius:10px;">
-    <p>We met in Mussoorie... (add your story)</p>
+    <p id="reliveCaption"></p> <!-- Caption will appear here -->
   </div>
 </div>
 
@@ -337,10 +337,11 @@
 </div>
 
   <script>
-  // --- Relive the Memory Modal with Random Images ---
+  // --- Relive the Memory Modal with Random Images + Captions ---
   const reliveBtn = document.getElementById("reliveBtn");
   const reliveModal = document.getElementById("reliveModal");
-  const reliveImg = document.getElementById("reliveImg"); // we will assign this in modal
+  const reliveImg = document.getElementById("reliveImg");
+  const reliveCaption = document.getElementById("reliveCaption"); // New caption element
   const factBtn = document.getElementById("factBtn");
   const factModal = document.getElementById("factModal");
 
@@ -352,22 +353,23 @@
     });
   });
 
-  // Image list for random selection
-  const memoryImages = [
-    "images/mussoorie.jpeg",
-    "images/reclinerselfie.jpeg",
-    "images/pocket.jpeg",
-    "images/poilaboishak.jpeg"
+  // Array of objects: image + caption
+  const memoryData = [
+    { src: "images/mussoorie.jpeg", caption: "We met in Mussoorie 💕" },
+    { src: "images/reclinerselfie.jpeg", caption: "Our cozy recliner selfie 😄" },
+    { src: "images/pocket.jpeg", caption: "The day of our endless talks ☕" },
+    { src: "images/poilaboishak.jpeg", caption: "Poila Boishakh celebrations 🎉" }
   ];
 
-  // Open Relive Memory with random image
+  // Open Relive Memory with random image + caption
   reliveBtn.addEventListener("click", () => {
-    const randomImage = memoryImages[Math.floor(Math.random() * memoryImages.length)];
-    reliveImg.src = randomImage;
+    const randomItem = memoryData[Math.floor(Math.random() * memoryData.length)];
+    reliveImg.src = randomItem.src;
+    reliveCaption.innerText = randomItem.caption;
     reliveModal.style.display = "flex";
   });
 
-  // Facts array (edit with your own cute facts)
+  // Facts array for "Did You Know"
   const facts = [
     "We spoke for 6 hours straight the first time.",
     "She almost missed her train the day we met.",
@@ -377,7 +379,6 @@
   ];
   let usedFacts = [];
 
-  // Open Fact Modal
   factBtn.addEventListener("click", () => {
     if (usedFacts.length === facts.length) usedFacts = [];
     let fact;
@@ -389,7 +390,6 @@
     factModal.style.display = "flex";
   });
 
-  // Close when clicking outside modal
   window.addEventListener("click", e => {
     if (e.target.classList.contains("modal")) {
       e.target.style.display = "none";

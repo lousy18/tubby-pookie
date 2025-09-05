@@ -707,7 +707,7 @@ html {
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 50%;
   padding: 6px 0;
   text-align: center;
   background: rgba(0, 0, 0, 0.5);

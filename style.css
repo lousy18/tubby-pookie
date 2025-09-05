@@ -652,13 +652,13 @@ html {
 
 /* Centered white card layout */
 .profile-card {
-  max-width: 1200px;
+  max-width: 1050px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  padding: 40px;
+  gap: 30px;
+  padding: 40px 30px;
   border-radius: 12px;
   background: #ffeef3;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -693,7 +693,7 @@ html {
 
 .carousel-item img {
   width: 100%;
-  height: 700px;
+  height: 400px;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -739,13 +739,12 @@ html {
 
 /* Right side: heading, text, CTA buttons */
 .profile-right {
-  flex: 1;
-  text-align: left;
+  max-width: 400px;
 }
 
 .profile-right h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
   color: #333;
 }

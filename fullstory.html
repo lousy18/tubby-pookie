@@ -7,15 +7,12 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <style>
-    /* Timeline wrapper */
     .timeline {
       position: relative;
       width: 100%;
       margin: 0 auto;
-      padding: 60px 0; /* some breathing space at top & bottom */
+      padding: 60px 0;
     }
-
-    /* Vertical line */
     .timeline::before {
       content: "";
       position: absolute;
@@ -27,42 +24,34 @@
       transform: translateX(-50%);
       z-index: 0;
     }
-
-    /* Each section */
     .story-section-full {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 40px;
-      margin: 60px auto;   /* space between cards */
+      margin: 60px auto;
       padding: 60px 40px;
-      max-width: 1000px;   /* card width */
+      max-width: 1000px;
       border-radius: 12px;
       position: relative;
-      background: #fff;    /* white card */
+      background: #fff;
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       z-index: 1;
     }
-
-    /* Alternate background colors*/
     .section-1 { background: #fff7f9; }
     .section-2 { background: #f9f9ff; }
     .section-3 { background: #f7fff9; }
 
-    /* Image */
     .story-section-full img {
       width: 300px;
       max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
-    /* Text */
     .story-text {
       max-width: 450px;
       text-align: left;
     }
-
     .story-text h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 2rem;
@@ -71,7 +60,6 @@
       text-align: center;
       margin-bottom: 15px;
     }
-
     .story-text h1::after {
       content: "❤";
       display: block;
@@ -79,19 +67,12 @@
       font-size: 1.2rem;
       color: #d94f6d;
     }
-
     .story-text p {
       font-size: 1rem;
       color: #555;
       line-height: 1.6;
     }
-
-    /* Reverse layout for alternating sections */
-    .reverse {
-      flex-direction: row-reverse;
-    }
-
-    /* Dot markers on the timeline */
+    .reverse { flex-direction: row-reverse; }
     .story-section-full::before {
       content: "";
       position: absolute;
@@ -105,133 +86,104 @@
       border-radius: 50%;
       z-index: 2;
     }
-
-    /* Connector line from dot to card */
-.story-section-full::after {
-  content: "";
-  position: absolute;
-  top: -40px; /* start at dot */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 40px; /* line length */
-  background: #ddd;
-  z-index: 1;
-}
-
-    /* Position the dots at the top of each section 
-    .section-1::before { top: 80px; }
-    .section-2::before { top: 80px; }
-    .section-3::before { top: 80px; }*/
-
-    /* Fade-up animation */
+    .story-section-full::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 40px;
+      background: #ddd;
+      z-index: 1;
+    }
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
-    .btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background: #d94f6d;      /* theme color */
-  color: white;
-  font-size: 1rem;
-  border-radius: 25px;      /* pill shape */
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease, transform 0.3s ease;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  box-shadow: none;
-}
-
-.btn:hover {
-  background: #b83d59;
-  transform: translateY(-2px) scale(1.05); /* subtle hover grow + lift */
-}
-
-
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Responsive */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #d94f6d;
+      color: white;
+      font-size: 1rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: none;
+    }
+    .btn:hover {
+      background: #b83d59;
+      transform: translateY(-2px) scale(1.05);
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
     @media (max-width: 768px) {
-      .timeline::before {
-        left: 20px; /* shift line for mobile */
-      }
+      .timeline::before { left: 20px; }
       .story-section-full {
         flex-direction: column !important;
         text-align: center;
         margin: 40px 20px;
       }
-      .story-section-full::before {
-        left: 20px; /* dot aligns with line */
-        transform: translateY(-50%);
-      }
-      .story-text {
-        text-align: center;
-      }
+      .story-section-full::before { left: 20px; transform: translateY(-50%); }
+      .story-text { text-align: center; }
     }
-
-    /* Modal background */
-.modal {
-  display: none; /* hidden by default */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-}
-
-/* Modal box */
-.modal-content {
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 90%;
-  max-height: 80vh; /* so it never exceeds viewport height */
-  overflow-y: auto; /* scroll if content is too tall */
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  text-align: center;
-  animation: fadeIn 0.4s ease;
-  position: relative;  /* Important for close button placement */
-  margin: auto;        /* Centers modal properly */
-}
-
-/* Close button */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #555;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #d94f6d;
-}
-
-/* Simple fade animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+      position: relative;
+      margin: auto;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #555;
+      cursor: pointer;
+    }
+    .close:hover { color: #d94f6d; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">D'n'D</a></div>
     <ul>
@@ -244,163 +196,131 @@
     </ul>
   </nav>
 
-  <!-- Timeline -->
   <div class="timeline">
-
-    <!-- How We Met -->
     <section class="story-section-full section-1 fade-up">
       <img src="images/How We Met.jpg" alt="How We Met">
       <div class="story-text">
         <h1>How We Met</h1>
-        <p>
-          Write the sweet story of how you two met here. Add fun details, the
-          setting, your first impressions, or even a funny twist.
-        </p>
-
+        <p>Write the sweet story of how you two met here.</p>
         <div class="cta-buttons">
-            <button class="btn" id="reliveBtn">Relive the Memory</button>
-            <button class="btn" id="factBtn">Did You Know?</button>
+          <button class="btn" id="reliveBtnHowWeMet">Relive the Memory</button>
+          <button class="btn" id="factBtnHowWeMet">Did You Know?</button>
         </div>
-
       </div>
     </section>
 
-    <!-- First Date -->
     <section class="story-section-full section-2 reverse fade-up">
       <img src="images/First Date.jpg" alt="First Date">
       <div class="story-text">
         <h1>First Date</h1>
-        <p>
-          Describe your first date here — where you went, what you felt, and
-          the little things that made it unforgettable.
-        </p>
-
+        <p>Describe your first date here.</p>
         <div class="cta-buttons">
-            <button class="btn" id="reliveBtn">Relive the Memory</button>
-            <button class="btn" id="factBtn">Did You Know?</button>
+          <button class="btn" id="reliveBtnFirstDate">Relive the Memory</button>
+          <button class="btn" id="factBtnFirstDate">Did You Know?</button>
         </div>
       </div>
     </section>
 
-    <!-- Milestones -->
     <section class="story-section-full section-3 fade-up">
       <img src="images/reclinerselfie.jpeg" alt="Milestones">
-      <div class="story-text">
+      <div class="story-text" style="text-align:center;">
         <h1>Milestones</h1>
-        <p>
-          Share the journey of your major milestones — trips, celebrations,
-          achievements together, or anything special you want to keep forever.
-        </p>
+        <p>Our journey of milestones together.</p>
+        <div class="cta-buttons" style="justify-content:center;">
+          <button class="btn" onclick="window.location.href='milestones.html'">View Our Milestones</button>
+        </div>
       </div>
     </section>
-
   </div>
 
-  <!-- Back link -->
-<div style="text-align:center; margin: 40px 0;">
-  <a href="index.html#story" class="btn">Back to Our Story</a>
-</div>
+  <div style="text-align:center; margin: 40px 0;">
+    <a href="index.html#story" class="btn">Back to Our Story</a>
+  </div>
 
+  <!-- Relive Memory Modal -->
+  <div id="reliveModal" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="reliveModal">&times;</span>
+      <h2>Relive the Memory 💕</h2>
+      <img id="reliveImg" src="" alt="Memory" style="max-width:100%; border-radius:10px;">
+      <p id="reliveCaption"></p>
+    </div>
+  </div>
+
+  <!-- Fact Modal -->
+  <div id="factModal" class="modal">
+    <div class="modal-content">
+      <span class="close" data-close="factModal">&times;</span>
+      <h2>Did You Know? 🌟</h2>
+      <p id="factText"></p>
+    </div>
+  </div>
 
   <script>
-    // Fade-up animation on scroll
-    const faders = document.querySelectorAll(".fade-up");
-    const appearOptions = {
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+    const reliveModal = document.getElementById("reliveModal");
+    const reliveImg = document.getElementById("reliveImg");
+    const reliveCaption = document.getElementById("reliveCaption");
+    const factModal = document.getElementById("factModal");
+    const factText = document.getElementById("factText");
+
+    document.querySelectorAll(".close").forEach(el => {
+      el.addEventListener("click", e => {
+        document.getElementById(e.target.dataset.close).style.display = "none";
       });
-    }, appearOptions);
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
     });
-  </script>
 
-  <!-- Relive the Memory Popup -->
-<div id="reliveModal" class="modal">
-  <div class="modal-content">
-    <span class="close" data-close="reliveModal">&times;</span>
-    <h2>Relive the Memory 💕</h2>
-    
-        <img id="reliveImg" src="" alt="Memory" style="max-width:100%; border-radius:10px;">
-    <p id="reliveCaption"></p> <!-- Caption will appear here -->
-  </div>
-</div>
+    const memoryDataHowWeMet = [
+      { src: "images/mussoorie.jpeg", caption: "We met in Mussoorie 💕" },
+      { src: "images/reclinerselfie.jpeg", caption: "Our cozy recliner selfie 😄" },
+      { src: "images/pocket.jpeg", caption: "Endless talks ☕" }
+    ];
+    const factsHowWeMet = [
+      "We spoke for 6 hours straight the first time.",
+      "She almost missed her train that day.",
+      "Our first meeting felt like destiny."
+    ];
 
-<!-- Did You Know Popup -->
-<div id="factModal" class="modal">
-  <div class="modal-content">
-    <span class="close" data-close="factModal">&times;</span>
-    <h2>Did You Know? 🌟</h2>
-    <p id="factText"></p>
-  </div>
-</div>
+    const memoryDataFirstDate = [
+      { src: "images/firstdate1.jpeg", caption: "Our first dinner 🍽️" },
+      { src: "images/firstdate2.jpeg", caption: "Coffee after a long walk ☕" }
+    ];
+    const factsFirstDate = [
+      "We both wore matching colors.",
+      "He remembered her exact coffee order!",
+      "We laughed till closing time."
+    ];
 
-  <script>
-  // --- Relive the Memory Modal with Random Images + Captions ---
-  const reliveBtn = document.getElementById("reliveBtn");
-  const reliveModal = document.getElementById("reliveModal");
-  const reliveImg = document.getElementById("reliveImg");
-  const reliveCaption = document.getElementById("reliveCaption"); // New caption element
-  const factBtn = document.getElementById("factBtn");
-  const factModal = document.getElementById("factModal");
-
-  // Close buttons
-  document.querySelectorAll(".close").forEach(el => {
-    el.addEventListener("click", e => {
-      const target = e.target.getAttribute("data-close");
-      document.getElementById(target).style.display = "none";
-    });
-  });
-
-  // Array of objects: image + caption
-  const memoryData = [
-    { src: "images/mussoorie.jpeg", caption: "We met in Mussoorie 💕" },
-    { src: "images/reclinerselfie.jpeg", caption: "Our cozy recliner selfie 😄" },
-    { src: "images/pocket.jpeg", caption: "The day of our endless talks ☕" },
-    { src: "images/poilaboishak.jpeg", caption: "Poila Boishakh celebrations 🎉" }
-  ];
-
-  // Open Relive Memory with random image + caption
-  reliveBtn.addEventListener("click", () => {
-    const randomItem = memoryData[Math.floor(Math.random() * memoryData.length)];
-    reliveImg.src = randomItem.src;
-    reliveCaption.innerText = randomItem.caption;
-    reliveModal.style.display = "flex";
-  });
-
-  // Facts array for "Did You Know"
-  const facts = [
-    "We spoke for 6 hours straight the first time.",
-    "She almost missed her train the day we met.",
-    "We both secretly wore matching colors on our first date.",
-    "He remembered the exact coffee she ordered that day.",
-    "We discovered our favorite song together on that trip."
-  ];
-  let usedFacts = [];
-
-  factBtn.addEventListener("click", () => {
-    if (usedFacts.length === facts.length) usedFacts = [];
-    let fact;
-    do {
-      fact = facts[Math.floor(Math.random() * facts.length)];
-    } while (usedFacts.includes(fact));
-    usedFacts.push(fact);
-    document.getElementById("factText").innerText = fact;
-    factModal.style.display = "flex";
-  });
-
-  window.addEventListener("click", e => {
-    if (e.target.classList.contains("modal")) {
-      e.target.style.display = "none";
+    function openRandomImage(data) {
+      const item = data[Math.floor(Math.random() * data.length)];
+      reliveImg.src = item.src;
+      reliveCaption.innerText = item.caption;
+      reliveModal.style.display = "flex";
     }
-  });
-</script>
 
+    function openRandomFact(data) {
+      factText.innerText = data[Math.floor(Math.random() * data.length)];
+      factModal.style.display = "flex";
+    }
+
+    document.getElementById("reliveBtnHowWeMet").onclick = () => openRandomImage(memoryDataHowWeMet);
+    document.getElementById("factBtnHowWeMet").onclick = () => openRandomFact(factsHowWeMet);
+    document.getElementById("reliveBtnFirstDate").onclick = () => openRandomImage(memoryDataFirstDate);
+    document.getElementById("factBtnFirstDate").onclick = () => openRandomFact(factsFirstDate);
+
+    window.onclick = e => {
+      if (e.target.classList.contains("modal")) e.target.style.display = "none";
+    };
+
+    const faders = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    faders.forEach(f => observer.observe(f));
+  </script>
 </body>
 </html>

@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <style>
+    /* Timeline wrapper */
     .timeline {
       position: relative;
       width: 100%;
       margin: 0 auto;
       padding: 60px 0;
     }
+
+    /* Vertical line */
     .timeline::before {
       content: "";
       position: absolute;
@@ -24,10 +27,12 @@
       transform: translateX(-50%);
       z-index: 0;
     }
+
+    /* Each story section */
     .story-section-full {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between; /* Restored original layout */
       gap: 40px;
       margin: 60px auto;
       padding: 60px 40px;
@@ -38,20 +43,26 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       z-index: 1;
     }
+
+    /* Alternate backgrounds */
     .section-1 { background: #fff7f9; }
     .section-2 { background: #f9f9ff; }
     .section-3 { background: #f7fff9; }
 
+    /* Images */
     .story-section-full img {
       width: 300px;
       max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
+    /* Text styling */
     .story-text {
       max-width: 450px;
       text-align: left;
     }
+
     .story-text h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 2rem;
@@ -60,6 +71,7 @@
       text-align: center;
       margin-bottom: 15px;
     }
+
     .story-text h1::after {
       content: "❤";
       display: block;
@@ -67,12 +79,18 @@
       font-size: 1.2rem;
       color: #d94f6d;
     }
+
     .story-text p {
       font-size: 1rem;
       color: #555;
       line-height: 1.6;
+      text-align: left;
     }
+
+    /* Reverse layout for alternating sections */
     .reverse { flex-direction: row-reverse; }
+
+    /* Timeline dots & connectors */
     .story-section-full::before {
       content: "";
       position: absolute;
@@ -86,6 +104,7 @@
       border-radius: 50%;
       z-index: 2;
     }
+
     .story-section-full::after {
       content: "";
       position: absolute;
@@ -97,15 +116,8 @@
       background: #ddd;
       z-index: 1;
     }
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+    /* CTA buttons */
     .btn {
       display: inline-block;
       padding: 12px 30px;
@@ -118,18 +130,32 @@
       transition: background 0.3s ease, transform 0.3s ease;
       border: none;
       cursor: pointer;
-      box-shadow: none;
     }
+
     .btn:hover {
       background: #b83d59;
       transform: translateY(-2px) scale(1.05);
     }
+
     .cta-buttons {
       display: flex;
       gap: 10px;
       margin-top: 20px;
       justify-content: center;
     }
+
+    /* Fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       .timeline::before { left: 20px; }
       .story-section-full {
@@ -140,6 +166,8 @@
       .story-section-full::before { left: 20px; transform: translateY(-50%); }
       .story-text { text-align: center; }
     }
+
+    /* Modal styling */
     .modal {
       display: none;
       position: fixed;
@@ -152,6 +180,7 @@
       justify-content: center;
       align-items: center;
     }
+
     .modal-content {
       background: #fff;
       padding: 20px 30px;
@@ -166,6 +195,7 @@
       position: relative;
       margin: auto;
     }
+
     .close {
       position: absolute;
       top: 10px;
@@ -175,7 +205,9 @@
       color: #555;
       cursor: pointer;
     }
+
     .close:hover { color: #d94f6d; }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -184,6 +216,7 @@
 </head>
 <body>
 
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">D'n'D</a></div>
     <ul>
@@ -196,12 +229,15 @@
     </ul>
   </nav>
 
+  <!-- Timeline -->
   <div class="timeline">
+
+    <!-- How We Met -->
     <section class="story-section-full section-1 fade-up">
       <img src="images/How We Met.jpg" alt="How We Met">
       <div class="story-text">
         <h1>How We Met</h1>
-        <p>Write the sweet story of how you two met here.</p>
+        <p>Write the sweet story of how you two met here. Add fun details, the setting, your first impressions, or even a funny twist.</p>
         <div class="cta-buttons">
           <button class="btn" id="reliveBtnHowWeMet">Relive the Memory</button>
           <button class="btn" id="factBtnHowWeMet">Did You Know?</button>
@@ -209,11 +245,12 @@
       </div>
     </section>
 
+    <!-- First Date -->
     <section class="story-section-full section-2 reverse fade-up">
       <img src="images/First Date.jpg" alt="First Date">
       <div class="story-text">
         <h1>First Date</h1>
-        <p>Describe your first date here.</p>
+        <p>Describe your first date here — where you went, what you felt, and the little things that made it unforgettable.</p>
         <div class="cta-buttons">
           <button class="btn" id="reliveBtnFirstDate">Relive the Memory</button>
           <button class="btn" id="factBtnFirstDate">Did You Know?</button>
@@ -221,6 +258,7 @@
       </div>
     </section>
 
+    <!-- Milestones -->
     <section class="story-section-full section-3 fade-up">
       <img src="images/reclinerselfie.jpeg" alt="Milestones">
       <div class="story-text" style="text-align:center;">
@@ -233,6 +271,7 @@
     </section>
   </div>
 
+  <!-- Back link -->
   <div style="text-align:center; margin: 40px 0;">
     <a href="index.html#story" class="btn">Back to Our Story</a>
   </div>
@@ -257,18 +296,21 @@
   </div>
 
   <script>
+    // Modal elements
     const reliveModal = document.getElementById("reliveModal");
     const reliveImg = document.getElementById("reliveImg");
     const reliveCaption = document.getElementById("reliveCaption");
     const factModal = document.getElementById("factModal");
     const factText = document.getElementById("factText");
 
+    // Close modals
     document.querySelectorAll(".close").forEach(el => {
       el.addEventListener("click", e => {
         document.getElementById(e.target.dataset.close).style.display = "none";
       });
     });
 
+    // Data for each section
     const memoryDataHowWeMet = [
       { src: "images/mussoorie.jpeg", caption: "We met in Mussoorie 💕" },
       { src: "images/reclinerselfie.jpeg", caption: "Our cozy recliner selfie 😄" },
@@ -290,6 +332,7 @@
       "We laughed till closing time."
     ];
 
+    // Random selection functions
     function openRandomImage(data) {
       const item = data[Math.floor(Math.random() * data.length)];
       reliveImg.src = item.src;
@@ -302,15 +345,18 @@
       factModal.style.display = "flex";
     }
 
+    // Event listeners
     document.getElementById("reliveBtnHowWeMet").onclick = () => openRandomImage(memoryDataHowWeMet);
     document.getElementById("factBtnHowWeMet").onclick = () => openRandomFact(factsHowWeMet);
     document.getElementById("reliveBtnFirstDate").onclick = () => openRandomImage(memoryDataFirstDate);
     document.getElementById("factBtnFirstDate").onclick = () => openRandomFact(factsFirstDate);
 
+    // Close modal on outside click
     window.onclick = e => {
       if (e.target.classList.contains("modal")) e.target.style.display = "none";
     };
 
+    // Fade-in on scroll
     const faders = document.querySelectorAll(".fade-up");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {

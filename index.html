@@ -88,6 +88,7 @@
       <h3>How We Met</h3>
       <p>
         A short description of how you both met. Keep it fun, sweet, or even quirky.
+        October was worth every text!
       </p>
     </div>
 
@@ -250,5 +251,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
+
+<script>
+let clickCount = 0;
+let clickTimer;
+
+document.addEventListener("click", (e) => {
+  // Only count clicks on empty spaces (not buttons/links)
+  if (e.target.tagName === "BODY" || e.target.tagName === "HTML") {
+    clickCount++;
+    if (clickCount === 3) {
+      window.location.href = "secret.html"; // Your hidden page
+    }
+    clearTimeout(clickTimer);
+    clickTimer = setTimeout(() => { clickCount = 0; }, 500); // 500ms reset
+  }
+});
+</script>
+
+
 </body>
 </html>

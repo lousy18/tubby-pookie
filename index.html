@@ -269,6 +269,21 @@ document.addEventListener("click", (e) => {
 });
 </script>
 
+<script>
+  // Open secret page on triple-click of non-interactive areas
+  document.addEventListener("click", function (e) {
+    // ignore clicks on obvious interactive elements
+    if (e.target.closest("a, button, .btn, input, textarea, select, label, .navbar")) return;
+
+    // e.detail is the click count in the current sequence
+    if (e.detail === 3) {
+      // if your files are in the same folder as index.html, this is fine:
+      window.location.href = "secret.html";
+      // If your site is in a subfolder (e.g. /tubby-pookie/), the relative path above still works.
+    }
+  }, { passive: true });
+</script>
+
 
 </body>
 </html>

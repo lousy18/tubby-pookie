@@ -253,23 +253,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-let clickCount = 0;
-let clickTimer;
-
-document.addEventListener("click", (e) => {
-  // Only count clicks on empty spaces (not buttons/links)
-  if (e.target.tagName === "BODY" || e.target.tagName === "HTML") {
-    clickCount++;
-    if (clickCount === 3) {
-      window.location.href = "secret.html"; // Your hidden page
-    }
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => { clickCount = 0; }, 500); // 500ms reset
-  }
-});
-</script>
-
-<script>
   // Open secret page on triple-click of non-interactive areas
   document.addEventListener("click", function (e) {
     // ignore clicks on obvious interactive elements

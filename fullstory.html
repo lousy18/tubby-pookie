@@ -101,13 +101,14 @@
     }
 
     /* CTA layout inside right column */
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      margin-top: 6px;
-      justify-content: flex-start; /* left-aligned inside right column */
-      flex-wrap: wrap;
-    }
+    .story-text .cta-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;      /* space above buttons */
+  justify-content: center; /* <-- centers the buttons horizontally */
+  align-items: center;
+  flex-wrap: wrap;
+}
 
     /* pill button */
     .btn {
@@ -159,6 +160,13 @@
         gap: 36px;
       }
     }
+
+    @media (max-width: 768px) {
+  .story-text .cta-buttons {
+    margin-top: 18px;
+    gap: 12px;
+  }
+}
     @media (max-width: 768px) {
       .timeline::before { left: 20px; }
       .story-section-full {

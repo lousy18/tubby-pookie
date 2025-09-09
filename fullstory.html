@@ -32,10 +32,10 @@
     .story-section-full {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 40px;
       margin: 60px auto;   /* space between cards */
-      padding: 60px 40px;
+      padding: 48px 72px;
       max-width: 1000px;   /* card width */
       border-radius: 12px;
       position: relative;
@@ -51,7 +51,7 @@
 
     /* Image */
     .story-section-full img {
-      width: 300px;
+      width: 340px;
       max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -130,6 +130,16 @@
       transform: translateY(40px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
+    /* Make milestone text consistent with other cards */
+.section-3 .story-text {
+  min-width: 350px; /* keeps spacing similar to others */
+}
+
+/* Center the button inside the text block */
+.section-3 .cta-buttons {
+  justify-content: center;
+}
 
     .btn {
   display: inline-block;
@@ -270,7 +280,7 @@
 
     <section class="story-section-full section-3 fade-up">
       <img src="images/reclinerselfie.jpeg" alt="Milestones">
-      <div class="story-text" style="text-align:center;">
+      <div class="story-text">
         <h1>Milestones</h1>
         <p>Our journey of milestones together.</p>
         <div class="cta-buttons" style="justify-content:center;">
